@@ -11,7 +11,7 @@ import {
 import firebase from "../server/firebase";
 
 import useValidacion from "../hooks/useValidacion";
-import validarCrearCuenta from "../validacion/validarCrearCuenta";
+import validarCrearProducto from "../validacion/validarCrearProducto";
 
 const NuevoProducto = () => {
   const [error, setError] = useState(false);
@@ -19,7 +19,7 @@ const NuevoProducto = () => {
   const STATE_INICIAL = {
     nombre: "",
     empresa: "",
-    imagen: "",
+    // imagen: "",
     url: "",
     descripcion: "",
   };
@@ -29,7 +29,7 @@ const NuevoProducto = () => {
     handleSubmit,
     handleChange,
     handleBlur,
-  } = useValidacion(STATE_INICIAL, validarCrearCuenta, crearCuenta);
+  } = useValidacion(STATE_INICIAL, validarCrearProducto, crearCuenta);
 
   const { nombre, empresa, iamgen, url, descripcion } = valores;
 
@@ -72,14 +72,14 @@ const NuevoProducto = () => {
                   id="empresa"
                   placeholder="Nombre Empresa"
                   name="empresa"
-                  value={nombre}
+                  value={empresa}
                   onChange={handleChange}
                   onBlur={handleBlur}
                 />
               </Campo>
               {errores.empresa && <Error>{errores.empresa}</Error>}
 
-              <Campo>
+              {/* <Campo>
                 <label htmlFor="imagen">Imagen</label>
                 <input
                   type="file"
@@ -89,7 +89,7 @@ const NuevoProducto = () => {
                   onBlur={handleBlur}
                 />
               </Campo>
-              {errores.imagen && <Error>{errores.imagen}</Error>}
+              {errores.imagen && <Error>{errores.imagen}</Error>} */}
 
               <Campo>
                 <label htmlFor="url">URL</label>
@@ -98,7 +98,7 @@ const NuevoProducto = () => {
                   id="url"
                   placeholder="url"
                   name="url"
-                  value={nombre}
+                  value={url}
                   onChange={handleChange}
                   onBlur={handleBlur}
                 />
@@ -115,7 +115,7 @@ const NuevoProducto = () => {
                   id="descripcion"
                   placeholder="descripcion"
                   name="descripcion"
-                  value={nombre}
+                  value={descripcion}
                   onChange={handleChange}
                   onBlur={handleBlur}
                 ></textarea>
