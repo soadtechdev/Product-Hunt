@@ -33,7 +33,7 @@ export default function Home() {
       <Layout>
         <div className="listado-productos">
           <div className="contenedor">
-            <ul className="background-white">
+            <ul className="bg-white">
               {productos.map((producto) => (
                 <DetallesProductos key={productos.id} producto={producto} />
               ))}
