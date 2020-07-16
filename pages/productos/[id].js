@@ -11,6 +11,16 @@ import { es } from "date-fns/locale";
 import { Campo, InputSubmit } from "../../components/UI/Formulario";
 import Boton from "../../components/UI/Boton";
 
+const CreadorProducto = styled.p`
+  padding: 0.5rem 2rem;
+  background-color: #da552f;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: bold;
+  display: inline-block;
+  text-align: center;
+`;
+
 const ContenedorProducto = styled.div`
   @media (min-width: 768px) {
     display: grid;
@@ -104,6 +114,13 @@ const Producto = () => {
       ...comentario,
       [e.target.name]: e.target.value,
     });
+  };
+
+  //identifica si el comentario es del creador
+  const esCreador = (id) => {
+    if (creador.id === id) {
+      return true;
+    }
   };
   const agregarComentario = (e) => {
     e.preventDefault();
@@ -204,6 +221,9 @@ const Producto = () => {
                           {comentario.usuarioNombre}
                         </span>{" "}
                       </p>
+                      {esCreador(comentario.usuarioId) && (
+                        <CreadorProducto>Es creador</CreadorProducto>
+                      )}
                     </li>
                   ))}
                 </ul>

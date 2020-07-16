@@ -35,7 +35,7 @@ export default function Home() {
           <div className="contenedor">
             <ul className="bg-white">
               {productos.map((producto) => (
-                <DetallesProductos key={productos.id} producto={producto} />
+                <DetallesProductos key={producto.id} producto={producto} />
               ))}
             </ul>
           </div>
