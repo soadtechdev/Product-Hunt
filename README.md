@@ -1,30 +1,59 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Clon lite de Product Hunt
 
-## Getting Started
+_Esta es una pequeña copia del sitio [Product Hunt](https://www.producthunt.com/ "Product Hunt")_
 
-First, run the development server:
+## Comenzando 🚀
 
-```bash
-npm run dev
-# or
-yarn dev
+####Importante
+
+_**No intente usar la configuracion que esta en firebase ya que se eliminara el proyecto de firebase, use su configuracion personal**_
+
+Mira **Deployment** para conocer como desplegar el proyecto.
+
+
+### Pre-requisitos 📋
+
+_Debe tener instalado Node en su sistema_
+
+
+
+### Instalación 🔧
+
+_Debe ejecutar los siguientes comandos para poder utilizar el proyecto_
+
+_Instalar dependencias_
+
+```
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+_Arrancar el proyecto_
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+```
+npm run dev
+```
 
-## Learn More
+## Construido con 🛠️
 
-To learn more about Next.js, take a look at the following resources:
+_Menciona las herramientas que utilizaste para crear tu proyecto_
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+* [Next.js](https://nextjs.org/) - Framework Web
+* [Firebase](https://firebase.com/) - Plataforma Serverless
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/import?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Autores ✒️
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+_Si deseas contribuir agrega tu nombre aqui_ 😀
+
+* **Fernando Ropero** - *Trabajo Inicial* - [SoadTech](https://github.com/soadtech)
+
+## Licencia 📄
+
+Este proyecto está bajo la Licencia (MIT) - mira el archivo [LICENSE.md](LICENSE.md) para detalles
+
+
+
+
+---
+⌨️ con ❤️ por [Fernando Ropero](https://github.com/soadtech) 😊
