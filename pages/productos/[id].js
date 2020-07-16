@@ -31,7 +31,7 @@ const Producto = () => {
   } = router;
 
   //context
-  const { firebase } = useContext(FirebaseContext);
+  const { firebase, usuario } = useContext(FirebaseContext);
 
   //peticion
   useEffect(() => {
@@ -56,8 +56,6 @@ const Producto = () => {
       obtenenerProducto();
     }
   }, [id]);
-
-  //   if (Object.keys(producto).length === 0) return "Cargando...";
 
   const {
     comentarios,
@@ -100,13 +98,18 @@ const Producto = () => {
                 <img src={urlimagen} alt={nombre} />
                 <p>{descripcion}</p>
 
-                <h2>Agrega tu comentario</h2>
-                <form action="">
-                  <Campo>
-                    <input type="text" name="mensaje" />
-                  </Campo>
-                  <InputSubmit type="submit" value="Agregar Comentario" />
-                </form>
+                {usuario && (
+                  <>
+                    {" "}
+                    <h2>Agrega tu comentario</h2>
+                    <form action="">
+                      <Campo>
+                        <input type="text" name="mensaje" />
+                      </Campo>
+                      <InputSubmit type="submit" value="Agregar Comentario" />
+                    </form>
+                  </>
+                )}
 
                 <h2
                   css={css`
@@ -130,7 +133,7 @@ const Producto = () => {
                   Visitar URL
                 </Boton>
                 <p>{votos} Votos</p>
-                <Boton>Votar</Boton>
+                {usuario && <Boton>Votar</Boton>}
               </aside>
             </ContenedorProducto>
           </div>
