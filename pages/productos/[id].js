@@ -1,15 +1,14 @@
 import React, { useEffect, useContext, useState } from "react";
-import { useRouter } from "next/router";
-
 import Layout from "../../components/layout/Layout";
-import { FirebaseContext } from "../../server";
 import Error404 from "../../components/layout/404";
-import { css } from "@emotion/core";
 import styled from "@emotion/styled";
 import formatDistanceToNow from "date-fns/formatDistanceToNow";
+import Boton from "../../components/UI/Boton";
+import { useRouter } from "next/router";
+import { FirebaseContext } from "../../server";
+import { css } from "@emotion/core";
 import { es } from "date-fns/locale";
 import { Campo, InputSubmit } from "../../components/UI/Formulario";
-import Boton from "../../components/UI/Boton";
 
 const CreadorProducto = styled.p`
   padding: 0.5rem 2rem;

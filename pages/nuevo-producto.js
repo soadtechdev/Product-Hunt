@@ -1,7 +1,11 @@
 import React, { useState, useContext } from "react";
 import Layout from "../components/layout/Layout";
-import Router, { useRouter } from "next/router";
+import Error404 from "../components/layout/404";
+import useValidacion from "../hooks/useValidacion";
+import validarCrearProducto from "../validacion/validarCrearProducto";
 import FileUploader from "react-firebase-file-uploader";
+
+import Router, { useRouter } from "next/router";
 import { css } from "@emotion/core";
 import {
   Formulario,
@@ -10,10 +14,6 @@ import {
   Error,
 } from "../components/UI/Formulario";
 import { FirebaseContext } from "../server";
-import Error404 from "../components/layout/404";
-
-import useValidacion from "../hooks/useValidacion";
-import validarCrearProducto from "../validacion/validarCrearProducto";
 
 const NuevoProducto = () => {
   //state de las imagenes

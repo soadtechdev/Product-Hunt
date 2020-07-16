@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 import Layout from "../components/layout/Layout";
 import Router from "next/router";
+import useValidacion from "../hooks/useValidacion";
+import validarCrearCuenta from "../validacion/validarCrearCuenta";
+import firebase from "../server/firebase";
+
 import { css } from "@emotion/core";
 import {
   Formulario,
@@ -8,10 +12,6 @@ import {
   InputSubmit,
   Error,
 } from "../components/UI/Formulario";
-import firebase from "../server/firebase";
-
-import useValidacion from "../hooks/useValidacion";
-import validarCrearCuenta from "../validacion/validarCrearCuenta";
 
 const CrearCuenta = () => {
   const [error, setError] = useState(false);
