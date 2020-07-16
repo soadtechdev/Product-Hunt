@@ -22,6 +22,7 @@ const Producto = () => {
   //state del component
   const [producto, setProducto] = useState({});
   const [error, setError] = useState(false);
+  const [comentario, setComentario] = useState({});
 
   //sacando el id de la URL
   const router = useRouter();
@@ -97,6 +98,38 @@ const Producto = () => {
     });
   };
 
+  //crear comentarios
+  const comentarioChange = (e) => {
+    setComentario({
+      ...comentario,
+      [e.target.name]: e.target.value,
+    });
+  };
+  const agregarComentario = (e) => {
+    e.preventDefault();
+    if (!usuario) {
+      return router.push("/login");
+    }
+
+    //info extra al comentario
+    comentario.usuarioId = usuario.uid;
+    comentario.usuarioNombre = usuario.displayName;
+
+    //tomar copia de comentarios y add al array
+    const nuevosComentarios = [...comentarios, comentario];
+
+    //actualizar la bd
+    firebase.db.collection("productos").doc(id).update({
+      comentarios: nuevosComentarios,
+    });
+
+    //actualizar state
+    setProducto({
+      ...producto,
+      comentarios: nuevosComentarios,
+    });
+  };
+
   if (Object.keys(producto).length === 0) {
     return (
       <Layout>
@@ -131,9 +164,13 @@ const Producto = () => {
                   <>
                     {" "}
                     <h2>Agrega tu comentario</h2>
-                    <form action="">
+                    <form onSubmit={agregarComentario}>
                       <Campo>
-                        <input type="text" name="mensaje" />
+                        <input
+                          type="text"
+                          name="mensaje"
+                          onChange={comentarioChange}
+                        />
                       </Campo>
                       <InputSubmit type="submit" value="Agregar Comentario" />
                     </form>
@@ -147,11 +184,29 @@ const Producto = () => {
                 >
                   Comentarios
                 </h2>
-                {/* {comentarios.map((comentario) => (
-                  <li>
-                    <p>{comentario.nombre}</p>
-                  </li>
-                ))} */}
+                <ul>
+                  {comentarios.map((comentario, i) => (
+                    <li
+                      key={`${comentario.usuarioId}-${i}`}
+                      css={css`
+                        border: 1px solid #e1e1e1;
+                        padding: 2rem;
+                      `}
+                    >
+                      <p>{comentario.mensaje}</p>
+                      <p>
+                        Escrito por:{" "}
+                        <span
+                          css={css`
+                            font-weight: bold;
+                          `}
+                        >
+                          {comentario.usuarioNombre}
+                        </span>{" "}
+                      </p>
+                    </li>
+                  ))}
+                </ul>
               </div>
               <aside>
                 <p>
