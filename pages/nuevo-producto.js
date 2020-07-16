@@ -62,6 +62,10 @@ const NuevoProducto = () => {
       votos: 0,
       comentarios: [],
       creado: Date.now(),
+      creador: {
+        id: usuario.uid,
+        nombre: usuario.displayName,
+      },
     };
 
     //insertarlo en la base de datos
