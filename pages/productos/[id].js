@@ -69,7 +69,7 @@ const Producto = () => {
       };
       obtenenerProducto();
     }
-  }, [id]);
+  }, [id, consultarDB]);
 
   const {
     comentarios,
