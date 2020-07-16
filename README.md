@@ -4,11 +4,10 @@ _Esta es una pequeña copia del sitio [Product Hunt](https://www.producthunt.com
 
 ## Comenzando 🚀
 
-#### Importante
+#### ******** IMPORTANTE ********
 
 _**No intente usar la configuracion que esta en firebase ya que se eliminara el proyecto de firebase, use su configuracion personal**_
 
-Mira **Deployment** para conocer como desplegar el proyecto.
 
 
 ### Pre-requisitos 📋
