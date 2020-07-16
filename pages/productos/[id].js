@@ -68,6 +68,25 @@ const Producto = () => {
     votos,
     creador,
   } = producto;
+
+  //admionistrar votos
+  const votarProducto = () => {
+    if (!usuario) {
+      return router.push("/login");
+    }
+    //obtener y sumar votos
+    const nuevoTotal = votos + 1;
+
+    //actualizar los votos en la bd
+    firebase.db.collection("productos").doc(id).update({ votos: nuevoTotal });
+
+    //actualizar el state
+    setProducto({
+      ...producto,
+      votos: nuevoTotal,
+    });
+  };
+
   if (Object.keys(producto).length === 0) {
     return (
       <Layout>
@@ -133,7 +152,7 @@ const Producto = () => {
                   Visitar URL
                 </Boton>
                 <p>{votos} Votos</p>
-                {usuario && <Boton>Votar</Boton>}
+                {usuario && <Boton onClick={votarProducto}>Votar</Boton>}
               </aside>
             </ContenedorProducto>
           </div>
